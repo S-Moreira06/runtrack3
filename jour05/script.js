@@ -5,6 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const firstname = document.getElementById("firstname")
     const firstnameError = document.getElementById("firstnameError")
 
+    function validateLastname() {
+        if (lastname.value.length < 3) {
+            lastnameError.textContent = "Pas assez long"
+            lastnameError.style.color = "red"
+        }
+        else {
+            lastnameError.textContent = "Nom valide!"
+            lastnameError.style.color = "green"
+        }
+    }
+
     function validateFirstname() {
         if (lastname.value.length < 3) {
             lastnameError.textContent = "Pas assez long"
@@ -16,5 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+
+    lastname.addEventListener("input", validateLastname)
     lastname.addEventListener("input", validateFirstname)
 })
