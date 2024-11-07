@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header class="flex justify-center p-5 bg-slate-300">
+        <nav class="justify-center">
+            <a href="#" class="mx-5 px-4 py-2 rounded-lg hover:bg-violet-500 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">Accueil</a>
+            <a href="#" class="mx-5 px-4 py-2 rounded-lg hover:bg-violet-500 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">Inscription</a>
+            <a href="#" class="mx-5 px-4 py-2 rounded-lg hover:bg-violet-500 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">Connexion</a>
+            <a href="#" class="ml-20 px-4 py-2 rounded-lg hover:bg-violet-500 active:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300">Rechercher</a>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <form action="">
+                <fieldset class="mt-5 flex">
+                    <legend>Civilité</legend>
+                    <div>
+                        <input type="radio" name="femme" id="femme">
+                        <label for="homme">Homme</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="femme" id="femme">
+                        <label for="femme">Femme</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="autre" id="autre">
+                        <label for="autre">Autre</label>
+                        
+                    </div>
+                </fieldset>
+                <div>
+                    <label for="lastname">Nom</label>
+                    <input type="text" name="lastname" id="lastname">
+                </div>
+                <div>
+                    <label for="firstname">Prénom</label>
+                    <input type="text" name="firstname" id="firstname">
+                </div>
+                <div>
+                    <label for="adress">Adresse</label>
+                    <input type="text" name="adress" id="adress">
+                </div>
+                <div>
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div>
+                    <label for="pass1">Mot de passe</label>
+                    <input type="text" name="pass1" id="pass1">
+                </div>
+                <div>
+                    <label for="pass2">Confirmez votre mot de passe</label>
+                    <input type="text" name="pass2" id="pass2">
+                </div>
+                <fieldset>
+                    <legend>Passions</legend>
+                    <div>
+                        <input type="checkbox" name="informatique" id="informatique">
+                        <label for="informatique">informatique</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="voyages" id="voyages">
+                        <label for="voyages">voyages</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="sport" id="sport">
+                        <label for="sport">sport</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="lecture" id="lecture">
+                        <label for="lecture">lecture</label>
+                    </div>
+                </fieldset>
+                <button>Validation</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <a href="#">Accueil</a>
+        <a href="#">Inscription</a>
+        <a href="#">Connexion</a>
+        <a href="#">Rechercher</a>
+    </footer>
+</body>
+</html>
