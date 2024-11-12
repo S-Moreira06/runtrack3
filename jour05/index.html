@@ -6,13 +6,48 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
     <title>Inscription - Jour 05</title>
+    <style>
+        body {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            background-color: dimgrey;
+            padding: 5px;
+            
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 30%;
+            margin: 0 auto;
+            margin-top: 20px;
+            background-color: blanchedalmond;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        label {
+            width: 80%;
+            margin: 5px auto;
+        }
+        input {
+            border-radius: 10px;
+            width: 80%;
+            margin: 5px auto;
+        }
+    </style>
 </head>
 <body>
 
     <nav>
         <h1>Jour 05</h1>
-        <a href="">Connexion</a>
-        <a href="">Inscription</a>
+        <div>
+            <a href="">Connexion</a>
+            <a href="">Inscription</a>
+        </div>
     </nav>
 
     <main>
@@ -25,17 +60,17 @@
             <input class="input-inscription" type="text" id="firstname" name="firstname" placeholder="Votre prenom" value="">
             <span id="firstnameError"></span>
 
-            <!-- <label class="label-inscription" for="email">E-Mail*:</label>
+            <label class="label-inscription" for="email">E-Mail*:</label>
             <input class="input-inscription" type="email" id="email" name="email" placeholder="Adresse e-mail valide" required>
-            <span id="emailError"></span> -->
+            <span id="emailError"></span>
 
-            <!-- <label class="label-inscription" for="pass1">Mot de Passe*:</label>
+            <label class="label-inscription" for="pass1">Mot de Passe*:</label>
             <input class="input-inscription" type="password" id="pass1" name="pass1" placeholder="1min/1MAJ/1chiffre/carac. spécial/ 8 carac mini" required>
             <span id="pass1Error"></span>
 
             <label class="label-inscription" for="pass2">Confirmer le mot de passe*:</label>
             <input class="input-inscription" type="password" id="pass2" name="pass2"required>
-            <span id="pass2Error"></span>-->
+            <span id="pass2Error"></span>
 
 
 
