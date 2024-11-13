@@ -19,6 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const update3 = document.getElementById("link3")
     const update4 = document.getElementById("link4")
     const update5 = document.getElementById("link5")
+    const moins = document.getElementById("moins")
+    const plus = document.getElementById("plus")
+
+    let keySequence = ['d', 'g', 'c']
+    let currentIndex = 0
 
     function rebootWorld() {
         const randomIndex = Math.floor(Math.random() * quotes.length)
@@ -30,6 +35,47 @@ document.addEventListener("DOMContentLoaded", function () {
         const jumbotronMain = document.getElementById("jumbotronMain")
         jumbotronMain.textContent = jumbotronQuotes[pageNumber - 1]
     }
+
+    function increaseProgress() {
+        let progressBar = document.getElementById('progressBar')
+        let currentWidth = parseInt(progressBar.style.width)
+        
+        if (currentWidth < 100) { // S'assurer que la barre ne dépasse pas 100%
+            currentWidth += 5
+            progressBar.style.width = currentWidth + '%'
+            progressBar.setAttribute('aria-valuenow', currentWidth)
+        }
+    }
+
+    function decreaseProgress() {
+        let progressBar = document.getElementById('progressBar')
+        let currentWidth = parseInt(progressBar.style.width);
+        
+        if (currentWidth > 0) { // S'assurer que la barre ne passe pas en dessous de 0%
+            currentWidth -= 5;
+            progressBar.style.width = currentWidth + '%'
+            progressBar.setAttribute('aria-valuenow', currentWidth)
+        }
+    }
+
+    function showModal() {
+        // Récupère les valeurs des champs du formulaire
+        const email = document.getElementById("inputEmail4").value;
+        const password = document.getElementById("inputPassword4").value;
+        const isChecked = document.getElementById("gridCheck").checked ? "Oui" : "Non";
+    
+        // Prépare le contenu de la modale
+        const modalContent = document.getElementById("modalContent");
+        modalContent.innerHTML = `
+            <p><strong>Email :</strong> ${email}</p>
+            <p><strong>Mot de passe :</strong> ${password}</p>
+            <p><strong>Check me out :</strong> ${isChecked}</p>
+        `;
+    
+        // Affiche la modale
+        const infoModal = new bootstrap.Modal(document.getElementById("infoModal"));
+        infoModal.show();
+    }
     
     reboot.addEventListener("click",rebootWorld)
     update1.addEventListener("click", function() { updateJumbotron(1); })
@@ -37,4 +83,23 @@ document.addEventListener("DOMContentLoaded", function () {
     update3.addEventListener("click", function() { updateJumbotron(3); })
     update4.addEventListener("click", function() { updateJumbotron(4); })
     update5.addEventListener("click", function() { updateJumbotron(5); })
+    moins.addEventListener("click", decreaseProgress)
+    plus.addEventListener("click", increaseProgress)
+    document.addEventListener('keydown', (event) => {
+        const key = event.key.toLowerCase();
+        
+        // Vérifie si la touche correspond à la prochaine de la séquence
+        if (key === keySequence[currentIndex]) {
+            currentIndex++;
+            
+            // Si la séquence est complète, affiche la modale
+            if (currentIndex === keySequence.length) {
+                showModal();
+                currentIndex = 0; // Réinitialise la séquence
+            }
+        } else {
+            // Réinitialise la séquence si une touche incorrecte est pressée
+            currentIndex = 0;
+        }
+    });
 })
