@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "Page 3 : Un nouveau chapitre avec des informations captivantes.",
         "Page 4 : Continuez à explorer, le contenu change ici aussi !",
         "Page 5 : Dernière page, mais pas la moindre ! Découvrez les derniers détails."
-    ];
+    ]
+    const classes = ['text-primary', 'text-secondary', 'text-success']
     const reboot = document.getElementById("reboot")
     const update1 = document.getElementById("link1")
     const update2 = document.getElementById("link2")
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const update5 = document.getElementById("link5")
     const moins = document.getElementById("moins")
     const plus = document.getElementById("plus")
+    const signin = document.getElementById("signin")
 
     let keySequence = ['d', 'g', 'c']
     let currentIndex = 0
@@ -66,16 +68,27 @@ document.addEventListener("DOMContentLoaded", function () {
     
         // Prépare le contenu de la modale
         const modalContent = document.getElementById("modalContent");
-        modalContent.innerHTML = `
-            <p><strong>Email :</strong> ${email}</p>
-            <p><strong>Mot de passe :</strong> ${password}</p>
-            <p><strong>Check me out :</strong> ${isChecked}</p>
-        `;
+        modalContent.innerHTML = `<p><strong>Email :</strong> ${email}</p><br><p><strong>Mot de passe :</strong> ${password}</p><br><p><strong>Check me out :</strong> ${isChecked}</p>`;
     
         // Affiche la modale
-        const infoModal = new bootstrap.Modal(document.getElementById("infoModal"));
-        infoModal.show();
+        const infoModal = new bootstrap.Modal(document.getElementById("infoModal"))
+        infoModal.show()
     }
+
+    function spinerColor () {
+        const color = document.getElementById("spin")
+        let currentClassIndex = classes.findIndex(className => element.classList.contains(className))
+                // Supprimer la classe actuelle
+                if (currentClassIndex !== -1) {
+                    element.classList.remove(classes[currentClassIndex])
+                }
+                // Calculer l'index de la classe suivante
+                const nextClassIndex = (currentClassIndex + 1) % classes.length// ici le modulo permet de revenir au debut de la liste lorsque l'index atteind la lenght du tableau
+                // Ajouter la nouvelle classe
+                element.classList.add(classes[nextClassIndex])
+    }
+
+    
     
     reboot.addEventListener("click",rebootWorld)
     update1.addEventListener("click", function() { updateJumbotron(1); })
